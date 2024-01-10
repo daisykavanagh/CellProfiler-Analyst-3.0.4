@@ -817,12 +817,11 @@ class Classifier(wx.Frame):
         ''' Create a new SortBin in a new StaticBoxSizer with the given label.
         This sizer is then added to the classified_bins_sizer. '''
         self.training_set_ready = False
-        bin = sortbin.SortBin(parent=self.classified_bins_panel, label=label,
-                              classifier=self)
-
         box = wx.StaticBox(self.classified_bins_panel, label=label)
         # NOTE: bin must be created after sizer or drop events will occur on the sizer
         sizer = wx.StaticBoxSizer(box, wx.VERTICAL)
+        bin = sortbin.SortBin(parent=self.classified_bins_panel, label=label,
+                              classifier=self)
         bin.parentSizer = sizer
 
         sizer.Add(bin, proportion=1, flag=wx.EXPAND)
